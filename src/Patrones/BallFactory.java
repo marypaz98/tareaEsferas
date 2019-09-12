@@ -26,23 +26,22 @@ public class BallFactory implements BallFactoryMethod {
                         Ball esfera = new Ball(color,vx,vy,width,height);
                         esfera.setNumBall(newNumEsfera);
                         PrototypeFactory.addPrototype(newNumEsfera, esfera);
+                        System.out.println("nueva");
                         return esfera;
-                }else if(nueva){
+                }else{
                         Ball esfera = (Ball) PrototypeFactory.getPrototype(numEsfera);
                         esfera.setNumBall(newNumEsfera);
                         esfera.setColor(color);
                         esfera.setHeight(height);
                         esfera.setVx(vx);
+                        esfera.setPosX();
+                        esfera.setPosY();
                         esfera.setVy(vy);
                         esfera.setWidth(width);
+                        System.out.println("no nueva");
                         PrototypeFactory.addPrototype(newNumEsfera, esfera);
                         return esfera;
                 }
-                else{
-                        Ball esfera = (Ball) PrototypeFactory.getPrototype(numEsfera);
-                        esfera.setNumBall(newNumEsfera);
-                        PrototypeFactory.addPrototype(newNumEsfera, esfera);
-                        return esfera;}
             case "Factory":
                 BallMiniFactory bmf = new BallMiniFactory();
                 return bmf.crearBall(c, vx, vy, width, height);
