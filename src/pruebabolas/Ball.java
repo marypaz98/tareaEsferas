@@ -5,6 +5,7 @@
  */
 package pruebabolas;
 
+import Patrones.IPoolableBall;
 import Patrones.IPrototype;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,7 +15,7 @@ import javax.swing.JFrame;
  *
  * @author maryp
  */
-public class Ball implements IPrototype {
+public class Ball implements IPrototype, IPoolableBall {
        private int posX, posY, size;
         private Color color;
         private int width, height;
@@ -66,7 +67,8 @@ public class Ball implements IPrototype {
         public void setHeight(int height){
             this.height=height;
         }
-        void update() {
+       @Override
+        public void update() {
             
             if (posX > width || posX < 0) {
                 vx *= -1;
