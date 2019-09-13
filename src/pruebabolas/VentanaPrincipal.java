@@ -46,7 +46,7 @@ public class VentanaPrincipal extends JFrame {
     }
     public void componentes(){
         panelMenu = new JPanel();
-       // panelMenu.setBounds(550, 0, 200,480);
+        panelMenu.setBounds(550, 0, 200,480);
         //panelMenu.setLayout(new FlowLayout());
         panelMenu.setBackground(Color.WHITE);
         LabelCantidad = new JLabel();

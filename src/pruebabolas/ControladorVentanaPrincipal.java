@@ -45,7 +45,7 @@ class ControladorVentanaPrincipal   {
         this.drawPanel = new DrawPanel();
         this.mainFrame.setLayout(new GridLayout(1,1));
        // this.drawPanel.setSize(10,10);
-       // this.drawPanel.setBounds(0, 0, 400, 450);
+       this.drawPanel.setBounds(0, 0, 400, 450);
         this.mainFrame.setTitle(this.mainFrame.windowLabel);
         this.mainFrame.setSize(this.mainFrame.windowWidth, this.mainFrame.windowHeight);
         this.mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,7 +84,7 @@ class ControladorVentanaPrincipal   {
         /* Initialize program */
        
         this.drawPanel = new DrawPanel(balls); 
-       // this.drawPanel.setBounds(0, 0, 400, 450);
+        this.drawPanel.setBounds(0, 0, 400, 450);
         this.mainFrame.add(drawPanel);
         //this.mainFrame.add(mainFrame.panelMenu);
         this.mainFrame.repaint();
