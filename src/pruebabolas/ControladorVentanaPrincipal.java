@@ -6,6 +6,7 @@
 package pruebabolas;
 
 import Patrones.BallFactory;
+import Patrones.BallPool;
 import Patrones.PrototypeFactory;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -32,11 +33,13 @@ class ControladorVentanaPrincipal   {
     private String patron;
     private int cantidad;
     private BallFactory factory;
+    private BallPool bp;
     
   //  private int windowWidth = 640;
    // private int windowHeight = 480;
   //  private String windowLabel = "Bounce Program";
     public ControladorVentanaPrincipal(){
+        this.bp= new BallPool(500);
         balls = new ArrayList<>();
         this.mainFrame = new VentanaPrincipal();
         this.drawPanel = new DrawPanel();
@@ -60,7 +63,7 @@ class ControladorVentanaPrincipal   {
        Boolean nueva=true;
         /* Generate balls */
         for (int i = 0; i < cantidad; i++) {
-            Ball ball=factory.crearEsfera(nueva, patron, c,color, 5, 0, 420, 480, 1, PrototypeFactory.prototypes.size()+1);
+            Ball ball=factory.crearEsfera(bp,nueva, patron, c,color, 5, 0, 420, 480, 1, PrototypeFactory.prototypes.size()+1);
            /* Ball ball = new Ball(
                     /* Random positions from 0 to windowWidth or windowHeight */
                     
