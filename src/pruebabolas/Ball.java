@@ -15,7 +15,7 @@ import javax.swing.JFrame;
  *
  * @author maryp
  */
-public class Ball implements IPrototype, IPoolableBall {
+public class Ball implements IPrototype, IPoolableBall,Runnable {
        private int posX, posY, size;
         private Color color;
         private int width, height;
@@ -124,6 +124,11 @@ public class Ball implements IPrototype, IPoolableBall {
     public Color getColor() {
         return this.color;
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
  }
 
