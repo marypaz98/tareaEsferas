@@ -5,10 +5,13 @@
  */
 package Patrones;
 
+import java.awt.Color;
+
 /**
  *
  * @author maryp
  */
 public interface IPoolableBall {
     public void update();
+    public Color getColor();
 }

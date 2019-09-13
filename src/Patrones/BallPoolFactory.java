@@ -15,8 +15,8 @@ import pruebabolas.Ball;
 public class BallPoolFactory implements IBallPoolFactory {
 
     @Override
-    public IPoolableBall createNew(Color color, int vx, int vy, int width, int height) {
-        return new Ball(color,vx,vy,width,height);
+    public IPoolableBall createNew(Color color) {
+        return new Ball(color);
       //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

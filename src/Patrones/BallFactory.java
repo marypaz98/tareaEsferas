@@ -15,7 +15,7 @@ import pruebabolas.Ball;
 public class BallFactory implements BallFactoryMethod {
 
     @Override
-    public Ball crearEsfera(Boolean nueva,String tipo,String c, Color color, int vx, int vy, int width, int height, int numEsfera, int newNumEsfera) {
+    public Ball crearEsfera(BallPool bp,Boolean nueva,String tipo,String c, Color color, int vx, int vy, int width, int height, int numEsfera, int newNumEsfera) {
         switch(tipo){
             case "Builder":
                 BallBuilder bb = new BallBuilder();
@@ -45,6 +45,14 @@ public class BallFactory implements BallFactoryMethod {
             case "Factory":
                 BallMiniFactory bmf = new BallMiniFactory();
                 return bmf.crearBall(c, vx, vy, width, height);
+            case "Object pool":
+                Ball esfera = (Ball) bp.getObject(color);
+                esfera.setVx(vx);
+                esfera.setVy(vy);
+                esfera.setHeight(height);
+                esfera.setWidth(width);
+                return esfera;
+                //throw new UnsupportedOperationException("Not supported yet.");
             default:
                 throw new UnsupportedOperationException("Not supported yet.");
         }

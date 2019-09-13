@@ -12,5 +12,5 @@ import java.awt.Color;
  * @author maryp
  */
 public interface IBallPoolFactory {
-    public IPoolableBall createNew(Color color, int vx,  int vy, int width, int height);
+    public IPoolableBall createNew(Color color);
 }

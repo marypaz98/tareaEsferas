@@ -43,6 +43,12 @@ public class Ball implements IPrototype, IPoolableBall {
             this.width=width;
             this.height=height;
         }
+        public Ball(Color color){
+            this.color=color;
+            this.posX = (int) Math.floor(Math.random() * 400);
+            this.posY =(int) Math.floor(Math.random() * 410);
+            this.size=20;
+        }
         public void setNumBall(int numBall){
             this.numBall=numBall;
         }
@@ -112,6 +118,12 @@ public class Ball implements IPrototype, IPoolableBall {
     @Override
     public IPrototype deepClone() {
         return clone(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Color getColor() {
+        return this.color;
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
  }
 
