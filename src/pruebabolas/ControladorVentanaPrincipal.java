@@ -25,36 +25,29 @@ import javax.swing.Timer;
 class ControladorVentanaPrincipal   {
     private VentanaPrincipal mainFrame;
     
-    private DrawPanel drawPanel;
-    private java.util.List<Ball> balls;
+ //   private DrawPanel drawPanel;
+    private ArrayList<Ball> balls;
     private Timer time;
     private int interval;
     private Color color;
     private String patron;
     private int cantidad;
+    private int velocidad;
+    private int direccion;
     private BallFactory factory;
     private BallPool bp;
-    
-  //  private int windowWidth = 640;
-   // private int windowHeight = 480;
-  //  private String windowLabel = "Bounce Program";
+    private AnimatedBalls ab;
     public ControladorVentanaPrincipal(){
         this.bp= new BallPool(500);
         balls = new ArrayList<>();
         this.mainFrame = new VentanaPrincipal();
-        this.drawPanel = new DrawPanel();
-        this.mainFrame.setLayout(new GridLayout(1,1));
-       // this.drawPanel.setSize(10,10);
-       this.drawPanel.setBounds(0, 0, 400, 450);
         this.mainFrame.setTitle(this.mainFrame.windowLabel);
         this.mainFrame.setSize(this.mainFrame.windowWidth, this.mainFrame.windowHeight);
         this.mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        this.mainFrame.add(drawPanel);
         this.mainFrame.setVisible(true);
         this.mainFrame.btnAgregar.addActionListener(new StartAction());
         this.interval=35;
-        this.factory= new BallFactory();
+      this.factory= new BallFactory();
     }
 
     void run() {
@@ -62,9 +55,12 @@ class ControladorVentanaPrincipal   {
        String c = (String)this.mainFrame.comboColor.getSelectedItem();
        Boolean nueva=true;
         /* Generate balls */
-        for (int i = 0; i < cantidad; i++) {
-            Ball ball=factory.crearEsfera(bp,nueva, patron, c,color, 5, 0, 420, 480, 1, PrototypeFactory.prototypes.size()+1);
-           /* Ball ball = new Ball(
+       for (int i = 0; i < cantidad; i++) {
+         //  BallPool bp,Boolean nueva,String tipo,String c, Color color, int velocidad, int orientacion, int numEsfera, int newNumEsfera
+      
+            Ball ball=factory.crearEsfera(bp,nueva, patron, c,color, this.velocidad,this.direccion,1, PrototypeFactory.prototypes.size()+1);
+       
+            /* Ball ball = new Ball(
                     /* Random positions from 0 to windowWidth or windowHeight */
                     
                     /* Random size from 10 to 30 */
@@ -83,7 +79,7 @@ class ControladorVentanaPrincipal   {
 
         /* Initialize program */
        
-        this.drawPanel = new DrawPanel(balls); 
+      /*  this.drawPanel = new DrawPanel(balls); 
         this.drawPanel.setBounds(0, 0, 400, 450);
         this.mainFrame.add(drawPanel);
         //this.mainFrame.add(mainFrame.panelMenu);
@@ -91,7 +87,7 @@ class ControladorVentanaPrincipal   {
         System.out.println("Si sale");
         
         
-
+*/
 
  
     }
@@ -132,6 +128,17 @@ class ControladorVentanaPrincipal   {
                 break;
         }
     }
+      public void asignarVelocidad(){
+          int vel = Integer.parseInt(this.mainFrame.txtVelocidad.getText());
+          this.velocidad=vel;
+      }
+      public void asignarDireccion(){
+          String direc= (String) this.mainFrame.comboDireccion.getSelectedItem();
+          this.direccion = Integer.parseInt(direc);
+         // this.patron=patronEscogido;
+      }
+
+      
 
 
  
@@ -139,11 +146,22 @@ class ControladorVentanaPrincipal   {
         public void actionPerformed(ActionEvent e) {
             asignarCantidad();
             asignarColor();
+            asignarVelocidad();
+            asignarDireccion();
             System.out.println(color.getRGB());
             asignarPatron();
             run();
-            drawPanel.setAnimation(true);
-            mainFrame.repaint();
+            if(ab!=null){
+                //ab = new AnimatedBalls(balls);
+               ab.frame.setVisible(false);
+            }
+             ab=new AnimatedBalls(balls);
+           
+          //  else{
+            //    ab.arr=balls;
+                
+           // }
+           // ab=new AnimatedBalls(balls);
            
         }
     }
