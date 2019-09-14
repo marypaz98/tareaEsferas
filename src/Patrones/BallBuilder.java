@@ -15,39 +15,35 @@ import pruebabolas.Ball;
  */
 public class BallBuilder implements IBuilder {
     private Color color;
-    private int vx;
-    private int vy;
-    private int height;
-    private int width;
+    private int velocidad;
+    private int orientacion;
+   // private int vx;
+   // private int vy;
+   // private int height;
+   // private int width;
     public BallBuilder() {}
     
 
-    public BallBuilder setVx(int vx){
-        this.vx=vx;
+    public BallBuilder setVelocidad(int vx){
+        this.velocidad=vx;
         return this;
     }
-    public BallBuilder setVy(int vy){
-        this.vy=vy;
-        return this;
-    }
+
     public BallBuilder setColor (Color color){
         this.color=color;
         return this;
     }
 
-    public BallBuilder setHeight(int height){
-        this.height=height;
+    public BallBuilder setOrientacion(int orien){
+        this.orientacion=orien;
         return this;
     }
-    public BallBuilder setWidth(int width){
-        this.width=width;
-        return this;
-    }
+
 
 
     @Override
     public Ball build() {
-        return new Ball(this.color, this.vx, this.vy,this.width, this.height);
+        return new Ball(this.color, this.velocidad,this.orientacion);
 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
      

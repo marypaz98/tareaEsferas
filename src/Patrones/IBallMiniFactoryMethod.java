@@ -13,5 +13,5 @@ import pruebabolas.Ball;
  * @author maryp
  */
 public interface IBallMiniFactoryMethod {
-    public Ball crearBall(String color,int vx, int vy, int width, int height);
+    public Ball crearBall(String color, int velocidad, int orientacion);
 }

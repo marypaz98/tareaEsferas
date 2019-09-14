@@ -14,7 +14,7 @@ import pruebabolas.Ball;
  * @author maryp
  */
 public interface BallFactoryMethod {
-    public Ball crearEsfera(BallPool bp,Boolean nueva,String tipo,String c, Color color, int vx, int vy,int width, int height,int numEsfera, int newNumEsfera);
+    public Ball crearEsfera(BallPool bp,Boolean nueva,String tipo,String c, Color color, int velocidad, int orientacion, int numEsfera, int newNumEsfera);
     
 
 }

@@ -19,7 +19,7 @@ import javax.swing.Timer;
  * @author maryp
  */
 public class DrawPanel extends JPanel {
-        private Timer time;
+     /*   private Timer time;
         private int interval;
         private java.util.List<Ball> balls;
         public DrawPanel(List<Ball> balls){
@@ -75,7 +75,7 @@ public class DrawPanel extends JPanel {
               
     //    }
         
-        }
+/*        }
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -83,5 +83,5 @@ public class DrawPanel extends JPanel {
             //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
             
-    }
+    }*/
 }

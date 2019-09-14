@@ -15,15 +15,15 @@ import pruebabolas.Ball;
 public class BallFactory implements BallFactoryMethod {
 
     @Override
-    public Ball crearEsfera(BallPool bp,Boolean nueva,String tipo,String c, Color color, int vx, int vy, int width, int height, int numEsfera, int newNumEsfera) {
+    public Ball crearEsfera(BallPool bp,Boolean nueva,String tipo,String c, Color color, int velocidad, int orientacion, int numEsfera, int newNumEsfera) {
         switch(tipo){
             case "Builder":
                 BallBuilder bb = new BallBuilder();
-                return bb.setColor(color).setHeight(height).setWidth(width).setVx(vx).setVy(vy).build();
+                return bb.setColor(color).setOrientacion(orientacion).setVelocidad(velocidad).build();
             case "Prototype":
                 if (newNumEsfera==1){
                     //int posX, int posY, int size, Color color, int vx, int vy,int height, int width
-                        Ball esfera = new Ball(color,vx,vy,width,height);
+                        Ball esfera = new Ball(color,velocidad,orientacion);
                         esfera.setNumBall(newNumEsfera);
                         PrototypeFactory.addPrototype(newNumEsfera, esfera);
                         System.out.println("nueva");
@@ -32,25 +32,21 @@ public class BallFactory implements BallFactoryMethod {
                         Ball esfera = (Ball) PrototypeFactory.getPrototype(numEsfera);
                         esfera.setNumBall(newNumEsfera);
                         esfera.setColor(color);
-                        esfera.setHeight(height);
-                        esfera.setVx(vx);
+                        esfera.setVelocidad(velocidad);
+                        esfera.setOrientacion(orientacion);
                         esfera.setPosX();
                         esfera.setPosY();
-                        esfera.setVy(vy);
-                        esfera.setWidth(width);
                         System.out.println("no nueva");
                         PrototypeFactory.addPrototype(newNumEsfera, esfera);
                         return esfera;
                 }
             case "Factory":
                 BallMiniFactory bmf = new BallMiniFactory();
-                return bmf.crearBall(c, vx, vy, width, height);
+                return bmf.crearBall(c, velocidad,orientacion);
             case "Object pool":
                 Ball esfera = (Ball) bp.getObject(color);
-                esfera.setVx(vx);
-                esfera.setVy(vy);
-                esfera.setHeight(height);
-                esfera.setWidth(width);
+                esfera.setVelocidad(velocidad);
+                esfera.setOrientacion(orientacion);
                 return esfera;
                 //throw new UnsupportedOperationException("Not supported yet.");
             default:
