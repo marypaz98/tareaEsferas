@@ -36,7 +36,9 @@ public class AnimatedBalls {
 
     public AnimatedBalls(ArrayList<Ball> array) {
         this.arr = array;
-        
+        frame = new JFrame();
+    }
+    public void run(){
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {        
@@ -48,7 +50,7 @@ public class AnimatedBalls {
                 } catch (UnsupportedLookAndFeelException ex) {
                 }
 
-                frame = new JFrame();
+                
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setLayout(new BorderLayout());
                 for (Ball i : arr){                     //agrega las bolitas al frame de la ventana
