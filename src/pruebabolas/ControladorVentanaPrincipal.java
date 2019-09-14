@@ -151,11 +151,15 @@ class ControladorVentanaPrincipal   {
             System.out.println(color.getRGB());
             asignarPatron();
             run();
-            if(ab!=null){
-                //ab = new AnimatedBalls(balls);
-               ab.frame.setVisible(false);
+            if(ab==null){
+               ab = new AnimatedBalls(balls);
+               ab.run();
+               //ab.frame.setVisible(false);
             }
-             ab=new AnimatedBalls(balls);
+            else{
+             ab.arr=balls;
+             ab.run();
+            }
            
           //  else{
             //    ab.arr=balls;
