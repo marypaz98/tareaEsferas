@@ -55,10 +55,11 @@ class ControladorVentanaPrincipal   {
        String c = (String)this.mainFrame.comboColor.getSelectedItem();
        Boolean nueva=true;
         /* Generate balls */
+        int numBola= PrototypeFactory.prototypes.size()+1;
        for (int i = 0; i < cantidad; i++) {
          //  BallPool bp,Boolean nueva,String tipo,String c, Color color, int velocidad, int orientacion, int numEsfera, int newNumEsfera
       
-            Ball ball=factory.crearEsfera(bp,nueva, patron, c,color, this.velocidad,this.direccion,1, PrototypeFactory.prototypes.size()+1);
+            Ball ball=factory.crearEsfera(bp,nueva, patron, c,color, this.velocidad,this.direccion,numBola, PrototypeFactory.prototypes.size()+1);
        
             /* Ball ball = new Ball(
                     /* Random positions from 0 to windowWidth or windowHeight */

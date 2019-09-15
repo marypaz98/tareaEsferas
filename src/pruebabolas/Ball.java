@@ -296,41 +296,12 @@ public class Ball extends JPanel implements IPrototype, IPoolableBall,Runnable {
 
 
 
- /*   @Override
-    public void move135() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    } */
-
-    @Override
-    public void move225() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void move270() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void move315() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 
-       @Override
-    public void move0() {
-            int x = getX();
-            int y = getY();
 
-            if (x + velocidad < 0 || x + diameter + velocidad > getParent().getWidth()) {
-                velocidad *= -1;
-            } 
-            x += velocidad;
 
-            setSize(getPreferredSize());
-            setLocation(x, y);
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
+
 
 
 

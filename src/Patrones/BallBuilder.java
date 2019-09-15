@@ -17,10 +17,6 @@ public class BallBuilder implements IBuilder {
     private Color color;
     private int velocidad;
     private int orientacion;
-   // private int vx;
-   // private int vy;
-   // private int height;
-   // private int width;
     public BallBuilder() {}
     
 
@@ -44,7 +40,6 @@ public class BallBuilder implements IBuilder {
     @Override
     public Ball build() {
         return new Ball(this.color, this.velocidad,this.orientacion);
-//throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
      
 }

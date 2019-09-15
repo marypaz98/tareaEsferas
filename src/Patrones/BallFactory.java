@@ -21,22 +21,16 @@ public class BallFactory implements BallFactoryMethod {
                 BallBuilder bb = new BallBuilder();
                 return bb.setColor(color).setOrientacion(orientacion).setVelocidad(velocidad).build();
             case "Prototype":
-                if (newNumEsfera==1){
-                    //int posX, int posY, int size, Color color, int vx, int vy,int height, int width
+                if (nueva){
                         Ball esfera = new Ball(color,velocidad,orientacion);
                         esfera.setNumBall(newNumEsfera);
                         PrototypeFactory.addPrototype(newNumEsfera, esfera);
-                        System.out.println("nueva");
                         return esfera;
                 }else{
                         Ball esfera = (Ball) PrototypeFactory.getPrototype(numEsfera);
-                        esfera.setNumBall(newNumEsfera);
-                        esfera.setColor(color);
-                        esfera.setVelocidad(velocidad);
-                        esfera.setOrientacion(orientacion);
                         esfera.setPosX();
                         esfera.setPosY();
-                        System.out.println("no nueva");
+                        esfera.setNumBall(newNumEsfera);
                         PrototypeFactory.addPrototype(newNumEsfera, esfera);
                         return esfera;
                 }
@@ -48,11 +42,9 @@ public class BallFactory implements BallFactoryMethod {
                 esfera.setVelocidad(velocidad);
                 esfera.setOrientacion(orientacion);
                 return esfera;
-                //throw new UnsupportedOperationException("Not supported yet.");
             default:
                 throw new UnsupportedOperationException("Not supported yet.");
         }
-        // //To change body of generated methods, choose Tools | Templates.
     }
     
 }
