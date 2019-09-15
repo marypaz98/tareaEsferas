@@ -26,7 +26,7 @@ public class BallFactory implements BallFactoryMethod {
                         Ball esfera = new Ball(color,velocidad,orientacion);
                         esfera.setNumBall(newNumEsfera);
                         PrototypeFactory.addPrototype(newNumEsfera, esfera);
-                        System.out.println("nueva");
+                        //System.out.println("nueva");
                         return esfera;
                 }else{
                         Ball esfera = (Ball) PrototypeFactory.getPrototype(numEsfera);
@@ -36,7 +36,7 @@ public class BallFactory implements BallFactoryMethod {
                         esfera.setOrientacion(orientacion);
                         esfera.setPosX();
                         esfera.setPosY();
-                        System.out.println("no nueva");
+                        //System.out.println("no nueva");
                         PrototypeFactory.addPrototype(newNumEsfera, esfera);
                         return esfera;
                 }

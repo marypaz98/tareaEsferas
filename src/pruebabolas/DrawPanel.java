@@ -71,7 +71,7 @@ public class DrawPanel extends JPanel {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }*/
-               // System.out.println("Me cago en la puta");
+               
               
     //    }
         

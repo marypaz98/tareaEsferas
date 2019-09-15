@@ -51,6 +51,7 @@ class ControladorVentanaPrincipal   {
     }
 
     void run() {
+       long tiempoInicial = System.currentTimeMillis();
        // System.out.println("Si entra");
        String c = (String)this.mainFrame.comboColor.getSelectedItem();
        Boolean nueva=true;
@@ -76,6 +77,10 @@ class ControladorVentanaPrincipal   {
             balls.add(ball);
             nueva=false;
         }
+        long tiempoFinal = System.currentTimeMillis();
+        long tiempoDiferencia = tiempoFinal - tiempoInicial;
+        //System.out.println("Tiempo de ejecución: " + Long.toString(tiempoDiferencia) + " ms");
+        this.mainFrame.LabelTiempo.setText(Long.toString(tiempoDiferencia) + " ms");
 
         /* Initialize program */
        
@@ -148,7 +153,7 @@ class ControladorVentanaPrincipal   {
             asignarColor();
             asignarVelocidad();
             asignarDireccion();
-            System.out.println(color.getRGB());
+            //System.out.println(color.getRGB());
             asignarPatron();
             run();
             if(ab==null){

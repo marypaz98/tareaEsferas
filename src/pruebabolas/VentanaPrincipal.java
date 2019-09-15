@@ -37,6 +37,8 @@ public class VentanaPrincipal extends JFrame {
     public int windowWidth;
     public int windowHeight;
     public String windowLabel;
+    public JLabel LabelTiempoEjecucion;
+    public JLabel LabelTiempo;
    // public JPanel mainPanel;
     public VentanaPrincipal(){
         componentes();
@@ -108,6 +110,12 @@ public class VentanaPrincipal extends JFrame {
         btnAgregar.setSize(60,25);
         btnAgregar.setText("Agregar");
         panelMenu.add(btnAgregar);
+        LabelTiempoEjecucion = new JLabel();
+        LabelTiempoEjecucion.setText("Tiempo de ejecucion: ");
+        panelMenu.add(LabelTiempoEjecucion);
+        LabelTiempo = new JLabel();
+        LabelTiempo.setText("0 ms");
+        panelMenu.add(LabelTiempo);
        // pack();
         panelMenu.setLayout(new BoxLayout(panelMenu,BoxLayout.PAGE_AXIS));
         
