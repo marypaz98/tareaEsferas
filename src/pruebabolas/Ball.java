@@ -172,30 +172,30 @@ public class Ball extends JPanel implements IPrototype, IPoolableBall,Runnable {
                     SwingUtilities.invokeAndWait(new Runnable() {
                         @Override
                         public void run() {
-                            if(orientacion == 90){
+                            if(orientacion == 90 || orientacion == 270){
                                 move90();
                                 repaint();
                             }
-                            if(orientacion == 180){
+                            if(orientacion == 180 || orientacion == 0){
                                 move180();
                                 repaint();
                             }
-                            if(orientacion == 45){
+                            if(orientacion == 45 || orientacion == 225){
                                 move45();
                                 repaint();
                             }
-                            if(orientacion == 0){
-                              //  move0();
+//                            if(orientacion == 0){
+//                              //  move0();
+//                                repaint();
+//                            }
+                            if(orientacion == 135 || orientacion == 315){
+                                move135();
                                 repaint();
                             }
-                            if(orientacion ==135){
-                               // move135();
-                                repaint();
-                            }
-                            if(orientacion ==225){
-                                //move225();
-                                repaint();
-                            }
+//                            if(orientacion ==225){
+//                                //move225();
+//                                repaint();
+//                            }
                         }
                     });
                 } catch (InterruptedException exp) {
@@ -206,6 +206,7 @@ public class Ball extends JPanel implements IPrototype, IPoolableBall,Runnable {
             }
         } 
 
+       @Override
         public void move180() {
 
             int x = getX();
@@ -213,12 +214,13 @@ public class Ball extends JPanel implements IPrototype, IPoolableBall,Runnable {
 
             if (x + velocidad < 0 || x + diameter + velocidad > getParent().getWidth()) {
                 velocidad *= -1;
-            } 
+            }
             x += velocidad;
 
             setSize(getPreferredSize());
             setLocation(x, y);
         }
+       @Override
         public void move90() {
 
             int x = getX();
@@ -233,6 +235,7 @@ public class Ball extends JPanel implements IPrototype, IPoolableBall,Runnable {
             setLocation(x, y);
 
         }
+       @Override
         public void move45() {
 
             int x = getX();
@@ -250,7 +253,29 @@ public class Ball extends JPanel implements IPrototype, IPoolableBall,Runnable {
             setSize(getPreferredSize());
             setLocation(x, y);
 
-        } 
+        }
+        
+       @Override
+        public void move135() {
+
+            int x = getX();
+            int y = getY();
+            
+            if(y + -velocidad < 0 || y + diameter + Math.abs(velocidad) > getParent().getHeight()){
+                velocidad *= -1;
+            }
+            
+            if (x + velocidad < 0 || x + diameter + velocidad > getParent().getWidth()) {
+                velocidad *= -1;
+            }
+           
+            x+= velocidad;
+            y-= velocidad;
+            
+            setSize(getPreferredSize());
+            setLocation(x, y);
+
+        }
         
 
     @Override
@@ -271,10 +296,10 @@ public class Ball extends JPanel implements IPrototype, IPoolableBall,Runnable {
 
 
 
-    @Override
+ /*   @Override
     public void move135() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    } */
 
     @Override
     public void move225() {
@@ -292,6 +317,7 @@ public class Ball extends JPanel implements IPrototype, IPoolableBall,Runnable {
     }
 
 
+       @Override
     public void move0() {
             int x = getX();
             int y = getY();

@@ -157,16 +157,20 @@ public class Ball1 extends JPanel implements Runnable,IPrototype<Ball1>{
                     SwingUtilities.invokeAndWait(new Runnable() {
                         @Override
                         public void run() {
-                            if(orientacion == 90){
+                            if(orientacion == 90 || orientacion == 270){
                                 move90();
                                 repaint();
                             }
-                            if(orientacion == 180){
+                            if(orientacion == 180 || orientacion == 0){
                                 move180();
                                 repaint();
                             }
-                            if(orientacion == 45){
+                            if(orientacion == 45 || orientacion == 225){
                                 //move45();
+                                repaint();
+                            }
+                            if(orientacion == 135){
+                                move135();
                                 repaint();
                             }
                         }
@@ -224,6 +228,27 @@ public class Ball1 extends JPanel implements Runnable,IPrototype<Ball1>{
             setLocation(x, y);
 
         }  
+        
+        public void move135() {
+
+            int x = getX();
+            int y = getY();
+
+            
+            if (y + velocidad < 0 || y + diameter + velocidad > getParent().getHeight()) {
+                velocidad *= -1;
+            }
+            if (x + velocidad < 0 || x + diameter + velocidad > getParent().getWidth()) {
+                velocidad *= -1;
+            }
+            
+            x += velocidad;
+            y += velocidad;
+            setSize(getPreferredSize());
+            setLocation(x, y);
+            
+
+        }
 
         @Override
         public Ball1 clone() {
