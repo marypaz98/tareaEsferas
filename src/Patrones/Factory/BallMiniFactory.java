@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Patrones;
+
+package Patrones.Factory;
 
 import java.awt.Color;
 import pruebabolas.Ball;
 
-/**
- *
- * @author maryp
- */
+
 public class BallMiniFactory implements IBallMiniFactoryMethod {
 
     @Override
@@ -46,7 +39,6 @@ public class BallMiniFactory implements IBallMiniFactoryMethod {
                 throw new UnsupportedOperationException("Not supported yet.");
                 
         }
-       //  //To change body of generated methods, choose Tools | Templates.
     }
     
 }

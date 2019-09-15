@@ -5,9 +5,9 @@
  */
 package pruebabolas;
 
-import Patrones.BallFactory;
-import Patrones.BallPool;
-import Patrones.PrototypeFactory;
+import Patrones.FactorySupremo.BallFactory;
+import Patrones.ObjectPool.BallPool;
+import Patrones.Prototype.PrototypeFactory;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -52,49 +52,17 @@ class ControladorVentanaPrincipal   {
 
     void run() {
        long tiempoInicial = System.currentTimeMillis();
-       // System.out.println("Si entra");
        String c = (String)this.mainFrame.comboColor.getSelectedItem();
        Boolean nueva=true;
-        /* Generate balls */
-       for (int i = 0; i < cantidad; i++) {
-         //  BallPool bp,Boolean nueva,String tipo,String c, Color color, int velocidad, int orientacion, int numEsfera, int newNumEsfera
-      
-            Ball ball=factory.crearEsfera(bp,nueva, patron, c,color, this.velocidad,this.direccion,1, PrototypeFactory.prototypes.size()+1);
-       
-            /* Ball ball = new Ball(
-                    /* Random positions from 0 to windowWidth or windowHeight */
-                    
-                    /* Random size from 10 to 30 */
-                    
-                    /* Random RGB colors*/
-                  /*  color,
-                    /* Random velocities from -5 to 5 */
-                 //   5,//(int) Math.floor((Math.random() * 10) - 5),
-                   // 0,//(int) Math.floor((Math.random() * 10) - 5),
-           //         420,480
-         //   );
-
+        int numBola= PrototypeFactory.prototypes.size()+1;
+       for (int i = 0; i < cantidad; i++) {     
+            Ball ball=factory.crearEsfera(bp,nueva, patron, c,color, this.velocidad,this.direccion,numBola, PrototypeFactory.prototypes.size()+1);
             balls.add(ball);
             nueva=false;
         }
         long tiempoFinal = System.currentTimeMillis();
         long tiempoDiferencia = tiempoFinal - tiempoInicial;
-        //System.out.println("Tiempo de ejecución: " + Long.toString(tiempoDiferencia) + " ms");
         this.mainFrame.LabelTiempo.setText(Long.toString(tiempoDiferencia) + " ms");
-
-        /* Initialize program */
-       
-      /*  this.drawPanel = new DrawPanel(balls); 
-        this.drawPanel.setBounds(0, 0, 400, 450);
-        this.mainFrame.add(drawPanel);
-        //this.mainFrame.add(mainFrame.panelMenu);
-        this.mainFrame.repaint();
-        System.out.println("Si sale");
-        
-        
-*/
-
- 
     }
       public void asignarCantidad(){
           int cantidad = Integer.parseInt(this.mainFrame.txtCantidad.getText());
@@ -140,7 +108,6 @@ class ControladorVentanaPrincipal   {
       public void asignarDireccion(){
           String direc= (String) this.mainFrame.comboDireccion.getSelectedItem();
           this.direccion = Integer.parseInt(direc);
-         // this.patron=patronEscogido;
       }
 
       
@@ -153,24 +120,16 @@ class ControladorVentanaPrincipal   {
             asignarColor();
             asignarVelocidad();
             asignarDireccion();
-            //System.out.println(color.getRGB());
             asignarPatron();
             run();
             if(ab==null){
                ab = new AnimatedBalls(balls);
                ab.run();
-               //ab.frame.setVisible(false);
             }
             else{
              ab.arr=balls;
              ab.run();
             }
-           
-          //  else{
-            //    ab.arr=balls;
-                
-           // }
-           // ab=new AnimatedBalls(balls);
            
         }
     }

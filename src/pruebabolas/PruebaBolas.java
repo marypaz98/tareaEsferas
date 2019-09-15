@@ -5,19 +5,11 @@
  */
 package pruebabolas;
 
-/**
- *
- * @author maryp
- */
+
 public class PruebaBolas {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         ControladorVentanaPrincipal program = new ControladorVentanaPrincipal();
-       // program.run();
-        // TODO code application logic here
     }
     
 }

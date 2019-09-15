@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Patrones;
+
+package Patrones.ObjectPool;
 
 import java.awt.Color;
 import java.util.Iterator;
@@ -12,10 +8,6 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import pruebabolas.Ball;
 
-/**
- *
- * @author maryp
- */
 public  class BallPool implements IBallPool {
     private int size;
     private int timeout;
@@ -86,14 +78,13 @@ public  class BallPool implements IBallPool {
       } catch (Exception e) {
             e.printStackTrace();
       }
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+          }
 
     @Override
     public void shutdown() {
         objects.clear();
         objectsDisponibles.clear();
         objectsUsados.clear();
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     
     }
 }
