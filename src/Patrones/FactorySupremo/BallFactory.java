@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Patrones;
+package Patrones.FactorySupremo;
 
+import Patrones.ObjectPool.BallPool;
+import Patrones.Prototype.PrototypeFactory;
+import Patrones.Factory.BallMiniFactory;
+import Patrones.Builder.BallBuilder;
 import java.awt.Color;
 import pruebabolas.Ball;
 

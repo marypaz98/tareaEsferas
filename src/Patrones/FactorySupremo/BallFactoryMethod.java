@@ -1,6 +1,7 @@
 
-package Patrones;
+package Patrones.FactorySupremo;
 
+import Patrones.ObjectPool.BallPool;
 import java.awt.Color;
 import javax.swing.JFrame;
 import pruebabolas.Ball;

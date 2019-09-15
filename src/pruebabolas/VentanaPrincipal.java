@@ -21,7 +21,6 @@ import javax.swing.JTextField;
  * @author maryp
  */
 public class VentanaPrincipal extends JFrame {
-  //  public JFrame mainFrame;
     public JLabel LabelCantidad;
     public JTextField txtCantidad;
     public JLabel LabelDireccion;
@@ -37,7 +36,8 @@ public class VentanaPrincipal extends JFrame {
     public int windowWidth;
     public int windowHeight;
     public String windowLabel;
-   // public JPanel mainPanel;
+    public JLabel LabelTiempoEjecucion;
+    public JLabel LabelTiempo;
     public VentanaPrincipal(){
         componentes();
         windowWidth = 200;
@@ -46,22 +46,16 @@ public class VentanaPrincipal extends JFrame {
     }
     public void componentes(){
         panelMenu = new JPanel();
-       // panelMenu.setBounds(550, 0, 200,480);
-        //panelMenu.setLayout(new FlowLayout());
         panelMenu.setBackground(Color.WHITE);
         LabelCantidad = new JLabel();
-       // LabelCantidad.setSize(10, 60);
         LabelCantidad.setText("Cantidad:");
         panelMenu.add(LabelCantidad);
         txtCantidad = new JTextField();
-      ///  txtCantidad.setSize(0, 0);
         panelMenu.add(txtCantidad);
         LabelDireccion = new JLabel();
         LabelDireccion.setText("Dirección:");
-       // LabelDireccion.setSize(10,10);
         panelMenu.add(LabelDireccion);
         comboDireccion = new JComboBox();
-       // comboDireccion.setSize(10, 25);
         comboDireccion.addItem("0");
         comboDireccion.addItem("45");
         comboDireccion.addItem("90");
@@ -73,13 +67,10 @@ public class VentanaPrincipal extends JFrame {
         panelMenu.add(comboDireccion);
         LabelVelocidad = new JLabel();
         LabelVelocidad.setText("Velocidad:");
-      //  LabelVelocidad.setSize(60, 60);
         panelMenu.add(LabelVelocidad);
         txtVelocidad = new JTextField();
-      //  txtVelocidad.setSize(60,25);
         panelMenu.add(txtVelocidad);
         LabelColor = new JLabel();
-      //  LabelColor.setSize(60,60);
         LabelColor.setText("Color:");
         panelMenu.add(LabelColor);
         comboColor = new JComboBox();
@@ -108,9 +99,13 @@ public class VentanaPrincipal extends JFrame {
         btnAgregar.setSize(60,25);
         btnAgregar.setText("Agregar");
         panelMenu.add(btnAgregar);
-       // pack();
+        LabelTiempoEjecucion = new JLabel();
+        LabelTiempoEjecucion.setText("Tiempo de ejecucion: ");
+        panelMenu.add(LabelTiempoEjecucion);
+        LabelTiempo = new JLabel();
+        LabelTiempo.setText("0 ms");
+        panelMenu.add(LabelTiempo);
         panelMenu.setLayout(new BoxLayout(panelMenu,BoxLayout.PAGE_AXIS));
-        
         this.add(panelMenu);
         
     }

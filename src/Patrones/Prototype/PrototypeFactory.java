@@ -1,5 +1,5 @@
 
-package Patrones;
+package Patrones.Prototype;
 
 import java.util.HashMap;
 

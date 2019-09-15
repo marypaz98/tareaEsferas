@@ -23,16 +23,6 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class AnimatedBalls {
     ArrayList<Ball> arr = new ArrayList();      //arraylist que proviene de algun patron
     JFrame frame;
-  /*  public static void main(String[] args) {      
-        ArrayList<Ball1> array = new ArrayList();
-        for(int i=0;i<500;i++){
-            array.add(new Ball1("blue",30,90));           //color,velocid X, velocid Y, angulo
-            array.add(new Ball1("green",10,180));
-        }
-        
-        
-        new AnimatedBalls(array);
-    } */
 
     public AnimatedBalls(ArrayList<Ball> array) {
         this.arr = array;
@@ -58,7 +48,7 @@ public class AnimatedBalls {
                     frame.add(i);
                 }
                 
-                frame.setSize(500, 500);
+                frame.setSize(600, 600);
                 frame.setVisible(true);
             }
         }); 

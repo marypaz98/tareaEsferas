@@ -1,5 +1,5 @@
 
-package Patrones;
+package Patrones.Builder;
 
 
 public interface IBuilder<T> {

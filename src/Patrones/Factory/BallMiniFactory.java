@@ -1,5 +1,5 @@
 
-package Patrones;
+package Patrones.Factory;
 
 import java.awt.Color;
 import pruebabolas.Ball;
