@@ -201,7 +201,7 @@ public class Ball extends JPanel implements IPrototype, IPoolableBall,Runnable {
                 } catch (InterruptedException exp) {
                     exp.printStackTrace();
                 } catch (InvocationTargetException exp) {
-                    exp.printStackTrace();
+
                 }
             }
         } 
